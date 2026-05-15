@@ -5,9 +5,9 @@ public class Sala {
     private String id;
     private int numero;
     private int capacidade;
-    private double disponivel;
+    private boolean disponivel;
 
-    public Sala(String id, int numero, int capacidade, double disponivel) {
+    public Sala(String id, int numero, int capacidade, boolean disponivel) {
         this.id = id;
         this.numero = numero;
         this.capacidade = capacidade;
@@ -38,11 +38,11 @@ public class Sala {
         this.capacidade = capacidade;
     }
 
-    public double getDisponivel() {
+    public boolean getDisponivel() {
         return disponivel;
     }
 
-    public void setDisponivel(double disponivel) {
+    public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
 

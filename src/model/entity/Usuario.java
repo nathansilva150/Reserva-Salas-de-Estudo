@@ -3,9 +3,9 @@ package model.entity;
 public class Usuario {
     private String id;
     private String nome;
-    private long cpf;
+    private String cpf;
 
-    public Usuario(String id, String nome, long cpf) {
+    public Usuario(String id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -27,11 +27,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }
