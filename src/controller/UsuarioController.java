@@ -1,6 +1,7 @@
 package controller;
 
 import model.service.UsuarioService;
+<<<<<<< HEAD
 import model.entity.Usuario;
 import model.repository.UsuarioRepository;
 import java.util.Map;
@@ -31,5 +32,15 @@ public class UsuarioController {
     public void removerusuario(String id){
         usuarioService.removerUsuario(id);
     }
+=======
+
+public class UsuarioController {
+    private UsuarioService service;
+
+    public UsuarioController(UsuarioService service) {
+        this.service = service;
+    }
+
+>>>>>>> origin/dev
 
 }
