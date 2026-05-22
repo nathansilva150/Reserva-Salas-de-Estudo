@@ -1,5 +1,8 @@
 package controller;
 
+import model.entity.Reserva;
+import model.repository.ReservaRepository;
+import model.service.ReservaService;
 import model.service.UsuarioService;
 
 import model.entity.Usuario;
@@ -8,9 +11,11 @@ import java.util.Map;
 
 public class UsuarioController {
     private UsuarioService usuarioService;
+    private ReservaService reservaService;
 
-    public UsuarioController(UsuarioService usuarioService){
+    public UsuarioController(UsuarioService usuarioService, ReservaService reservaService){
         this.usuarioService = usuarioService;
+        this.reservaService = reservaService;
     }
 
     //Cadastrar
@@ -29,7 +34,14 @@ public class UsuarioController {
     }
 
     //Remover
-    public void removerusuario(String id){
+    public void removerUsuario(String id){
+        Map<String, Reserva> listaReserva = reservaService.listarReservas();
+
+        for (Reserva reserva: listaReserva.values()) {
+            if(reserva.getSala().getId().equals(id)){
+                throw new IllegalArgumentException("ERRO - Usuario ainda possui reservas pendentes");
+            }
+        }
         usuarioService.removerUsuario(id);
     }
 

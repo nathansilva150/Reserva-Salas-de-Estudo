@@ -41,7 +41,7 @@ public class SalaService {
     }
 
     //Busacr
-    public Sala busacrSala(String id){
+    public Sala buscarSala(String id){
         Sala sala = salaRepository.buscarSalaComId(id);
 
         if(sala == null){
