@@ -69,7 +69,7 @@ public class MenuView {
                         } catch(InputMismatchException e){
                             System.out.println("ERRO - Input Inválido");
                         } catch(RuntimeException e) {
-                            System.out.println("ERRO - ...");
+                            System.out.println("ERRO - "+e.getMessage());
                         }
                     }
                 case 2 -> {
@@ -80,12 +80,18 @@ public class MenuView {
                     } catch(InputMismatchException e) {
                         System.out.println("ERRO - Input Inválido");
                     } catch(RuntimeException e) {
-                        System.out.println("ERRO - ...");
+                        System.out.println("ERRO - "+e.getMessage());
                     }
                 }
                 case 3 -> {
                     try{
                         reservaView.cadastrarReserva();
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    } catch (InputMismatchException e){
+                        System.out.println("ERRO - Input inválido");
+                    } catch (RuntimeException e) {
+                        System.out.println("ERRO - "+ e.getMessage());
                     }
                 }
             }
