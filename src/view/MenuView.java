@@ -131,7 +131,9 @@ public class MenuView {
                 case 1 -> {
                     usuarioView.listarUsuarios();
                 }
-
+                case 2 -> {
+                    salaView.listarSalas();
+                }
             }
 
 
