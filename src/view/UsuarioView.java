@@ -43,7 +43,7 @@ public class UsuarioView {
 
     public void removerUsuario() {
         System.out.println("Digite o ID do Usuario que deseja remover: ");
-        controller.removerusuario(sc.nextLine());
+        controller.removerUsuario(sc.nextLine());
         System.out.println("Usuario removido com sucesso!");
     }
 }

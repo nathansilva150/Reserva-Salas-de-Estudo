@@ -43,4 +43,9 @@ public class SalaView {
     }
 
 
+    public void removerSala() {
+        System.out.println("Digite a Sala a ser removida pelo ID:");
+        controller.removerSala(sc.nextLine());
+        System.out.println("Sala removida com sucesso!");
+    }
 }

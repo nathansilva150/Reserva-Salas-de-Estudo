@@ -158,7 +158,7 @@ public class MenuView {
                     usuarioView.removerUsuario();
                 }
                 case 2 -> {
-
+                    salaView.removerSala();
                 }
 
             }
