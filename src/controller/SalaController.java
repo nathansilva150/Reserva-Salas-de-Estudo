@@ -32,6 +32,11 @@ public class SalaController {
 
     //Remover
     public void removerSala(String id){
+            validarDelete(id);
+            salaService.removerSala(id);
+    }
+
+    public void validarDelete(String id) {
         Map<String, Reserva> listaReserva = reservaService.listarReservas();
 
         for (Reserva reserva: listaReserva.values()) {
@@ -39,6 +44,6 @@ public class SalaController {
                 throw new IllegalArgumentException("ERRO - Sala não pode ser deletada pois ainda está reservada");
             }
         }
-            salaService.removerSala(id);
     }
 }
+

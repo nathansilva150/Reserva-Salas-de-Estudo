@@ -35,6 +35,11 @@ public class UsuarioController {
 
     //Remover
     public void removerUsuario(String id){
+        validarDelete(id);
+        usuarioService.removerUsuario(id);
+    }
+
+    public void validarDelete(String id) {
         Map<String, Reserva> listaReserva = reservaService.listarReservas();
 
         for (Reserva reserva: listaReserva.values()) {
@@ -42,10 +47,7 @@ public class UsuarioController {
                 throw new IllegalArgumentException("ERRO - Usuario ainda possui reservas pendentes");
             }
         }
-        usuarioService.removerUsuario(id);
     }
-
-
 
 
 
