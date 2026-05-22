@@ -143,4 +143,25 @@ public class MenuView {
 
         } while (opc != 0);
     }
+
+    public void remover() {
+        int opc = 0;
+
+        do {
+            System.out.println("Digite para remover");
+            System.out.println("1 ------ Usuario");
+            System.out.println("2 ------ Sala");
+            System.out.println("3 ------ Reserva");
+
+            switch(opc) {
+                case 1 -> {
+                    usuarioView.removerUsuario();
+                }
+                case 2 -> {
+
+                }
+
+            }
+        }while (opc != 0);
+        }
 }

@@ -40,4 +40,10 @@ public class UsuarioView {
             System.out.println("Nome: " +user.getNome());
         }
     }
+
+    public void removerUsuario() {
+        System.out.println("Digite o ID do Usuario que deseja remover: ");
+        controller.removerusuario(sc.nextLine());
+        System.out.println("Usuario removido com sucesso!");
+    }
 }
