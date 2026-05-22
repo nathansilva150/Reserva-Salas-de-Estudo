@@ -160,7 +160,9 @@ public class MenuView {
                 case 2 -> {
                     salaView.removerSala();
                 }
+                case 3 -> {
 
+                }
             }
         }while (opc != 0);
     }

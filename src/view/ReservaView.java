@@ -48,4 +48,11 @@ import static view.Inicializar.criarReservaController;
                 System.out.println("Status :"+reserva.getStatus());
             }
         }
+
+        public void removerReserva() {
+            System.out.println("Selecione a Reserva pelo ID");
+            controller.cancelarReserva(sc.nextLine());
+            System.out.println("Reserva Canceçada com sucesso!");
+        }
+
     }
