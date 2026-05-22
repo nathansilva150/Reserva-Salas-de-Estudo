@@ -103,4 +103,9 @@ public class ReservaService {
         }
     }
 
+    public Map<String, Reserva> listarReservas() {
+        return reservaRepository.listarReservas();
+    }
+
+
 }

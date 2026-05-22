@@ -1,7 +1,9 @@
 package view;
 
 import controller.ReservaController;
+import model.entity.Reserva;
 
+import java.util.Map;
 import java.util.Scanner;
 
 import static view.Inicializar.criarReservaController;
@@ -32,5 +34,18 @@ import static view.Inicializar.criarReservaController;
             String status = sc.nextLine();
 
             controller.cadastrarReserva(idUser, id, idSala, data, hora, status);
+        }
+
+        public void listarReservas() {
+            Map<String, Reserva> listaReservas = controller.listarReservas();
+
+            for(Reserva reserva: listaReservas.values()) {
+                System.out.println("ID :"+reserva.getId());
+                System.out.println("Sala :"+reserva.getSala().getNumero());
+                System.out.println("Usuario :"+reserva.getUsuario().getNome());
+                System.out.println("Data :"+reserva.getData());
+                System.out.println("Hora :" +reserva.getHorario());
+                System.out.println("Status :"+reserva.getStatus());
+            }
         }
     }

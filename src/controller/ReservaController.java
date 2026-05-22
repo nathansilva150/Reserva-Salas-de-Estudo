@@ -22,4 +22,8 @@ public class ReservaController {
     public void cancelarReserva(String idReserva){
         service.cancelarReserva(idReserva);
     }
+
+    public Map<String, Reserva> listarReservas() {
+    return service.listarReservas();
+    }
 }
