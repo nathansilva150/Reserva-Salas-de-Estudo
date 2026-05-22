@@ -42,10 +42,15 @@ public class MenuView {
                 case 1 -> {
                     cadastro();
                 }
+                case 2 -> {
+
+                }
             }
 
         } while (opc != 0);
     }
+
+
     public void cadastro() {
         int opc = 0;
         do{
@@ -94,7 +99,43 @@ public class MenuView {
                         System.out.println("ERRO - "+ e.getMessage());
                     }
                 }
+                case 0 -> {
+                    break;
+                }
+                default -> {
+                    System.out.println("Inválido!");
+                    break;
+                }
             }
         }while (opc != 0);
+    }
+
+    public void listar() {
+        int opc = 0;
+        do {
+            try {
+                System.out.println("digite para listar:");
+                System.out.println(" 1 ---- Usuarios");
+                System.out.println(" 2 ---- Salas");
+                System.out.println(" 3 ---- Reservas");
+                opc = sc.nextInt();
+                if(opc> 3 || opc < 0){
+                    throw new IllegalArgumentException("Numero fora do intervalo permitido");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("ERRO - Input invalido"+ e);
+            }
+            switch (opc) {
+                case 1 -> {
+                    usuarioView.listarUsuarios();
+                }
+
+            }
+
+
+
+        } while (opc != 0);
     }
 }
