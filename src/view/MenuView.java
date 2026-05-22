@@ -4,20 +4,21 @@ import controller.ReservaController;
 import controller.SalaController;
 import controller.UsuarioController;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuView {
 
-    ReservaController reservaController;
-    SalaController salaController;
-    UsuarioController usuarioController;
-    Scanner sc;
 
-    public MenuView(ReservaController reservaController, SalaController salaController, UsuarioController usuarioController) {
+    Scanner sc;
+    UsuarioView usuarioView;
+    SalaView salaView;
+    ReservaView reservaView;
+    public MenuView() {
         sc = new Scanner(System.in);
-        reservaController = this.reservaController;
-        salaController = this.salaController;
-        usuarioController = this.usuarioController;
+        usuarioView = new UsuarioView();
+        salaView = new SalaView();
+        reservaView = new ReservaView();
 
     }
 
@@ -61,10 +62,26 @@ public class MenuView {
             }
             switch (opc) {
                 case 1 -> {
-
+                        try {
+                            usuarioView.cadastrarUsuario();
+                        } catch(IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
+                        } catch(InputMismatchException e){
+                            System.out.println("ERRO - Input Inválido");
+                        } catch(RuntimeException e) {
+                            System.out.println("ERRO - ...");
+                        }
                     }
                 case 2 -> {
-                    salaController.cadastrarSala();
+                    try {
+                        salaView.cadastrarSala();
+                    } catch(IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    } catch(InputMismatchException e) {
+                        System.out.println("ERRO - Input Inválido");
+                    } catch(RuntimeException e) {
+                        System.out.println("ERRO - ...");
+                    }
                 }
             }
         }while (opc != 0);

@@ -25,11 +25,7 @@ public class UsuarioView {
         System.out.println("Digite o ID do usuario");
         String id = sc.nextLine();
 
-        try {
             controller.cadastrarUsuario(nome, cpf, id);
             System.out.println("Usuario Cadastrado com sucesso!");
-        } catch (IllegalArgumentException e) {
-            System.out.println(e);
-        }
     }
 }
