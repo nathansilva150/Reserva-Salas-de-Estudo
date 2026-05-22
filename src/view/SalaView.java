@@ -25,6 +25,6 @@ public class SalaView {
             controller.cadastrarSala(id, num, capacidade, true);
             System.out.println("Usuario Cadastrado com sucesso!");
 
-    }
+
     }
 }

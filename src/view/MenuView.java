@@ -83,6 +83,11 @@ public class MenuView {
                         System.out.println("ERRO - ...");
                     }
                 }
+                case 3 -> {
+                    try{
+                        reservaView.cadastrarReserva();
+                    }
+                }
             }
         }while (opc != 0);
     }
