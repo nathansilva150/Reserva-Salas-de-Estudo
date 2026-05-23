@@ -118,6 +118,7 @@ public class MenuView {
                 System.out.println(" 1 ---- Usuarios");
                 System.out.println(" 2 ---- Salas");
                 System.out.println(" 3 ---- Reservas");
+                System.out.println(" 0 ---- Sair");
                 opc = sc.nextInt();
                 if(opc> 3 || opc < 0){
                     throw new IllegalArgumentException("Numero fora do intervalo permitido");
@@ -137,6 +138,14 @@ public class MenuView {
                 case 3 -> {
                     reservaView.listarReservas();
                 }
+                case 0 -> {
+                    System.out.println("Saindo");
+                    break;
+                }
+                default -> {
+                    System.out.println("numero fora do intervalo");
+                    break;
+                }
             }
 
 
@@ -152,6 +161,7 @@ public class MenuView {
             System.out.println("1 ------ Usuario");
             System.out.println("2 ------ Sala");
             System.out.println("3 ------ Reserva");
+            System.out.println("0 ------ Sair");
 
             switch(opc) {
                 case 1 -> {
@@ -161,7 +171,14 @@ public class MenuView {
                     salaView.removerSala();
                 }
                 case 3 -> {
-
+                    reservaView.removerReserva();
+                }
+                case 0 -> {
+                    System.out.println("saindo...");
+                    break;
+                }
+                default -> {
+                    break;
                 }
             }
         }while (opc != 0);
