@@ -43,6 +43,9 @@ public class MenuView {
                     cadastro();
                 }
                 case 2 -> {
+                    listar();
+                }
+                case 3 -> {
 
                 }
             }
@@ -104,7 +107,6 @@ public class MenuView {
                 }
                 default -> {
                     System.out.println("Inválido!");
-                    break;
                 }
             }
         }while (opc != 0);
