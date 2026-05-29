@@ -17,13 +17,20 @@ public class Inicializar {
     public static UsuarioController criarUsuarioController() {
         UsuarioRepository repository = new UsuarioRepository();
         UsuarioService service = new UsuarioService(repository);
-         return new UsuarioController(service);
+        ReservaRepository reservaRepository = new ReservaRepository();
+        SalaRepository salaRepository = new SalaRepository();
+        ReservaService reservaService = new ReservaService(reservaRepository, salaRepository, repository);
+
+         return new UsuarioController(service, reservaService);
     }
 
     public static SalaController criarSalaController(){
         SalaRepository repository = new SalaRepository();
         SalaService service = new SalaService(repository);
-        return new SalaController(service);
+        UsuarioRepository usuarioRepository = new UsuarioRepository();
+        ReservaRepository reservaRepository = new ReservaRepository();
+        ReservaService reservaService = new ReservaService(reservaRepository,repository ,usuarioRepository );
+        return new SalaController(service, reservaService);
     }
 
     public static ReservaController criarReservaController() {

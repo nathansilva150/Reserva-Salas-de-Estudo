@@ -185,4 +185,35 @@ public class MenuView {
             }
         }while (opc != 0);
     }
+
+    public void Atualizar() {
+       int opc = 0;
+
+       do{
+           System.out.println("Digite para Atualizar:");
+           System.out.println("1 ---------- Usuario");
+           System.out.println("2 ---------- Sala");
+           System.out.println("3 ---------- Reserva");
+           System.out.println("0 ---------- Sair");
+           try {
+               opc = sc.nextInt();
+
+               if (opc > 3 || opc < 0) {
+                   throw  new IllegalArgumentException("ERRO - Numero fora do intervalo permitido");
+               }
+
+           } catch(InputMismatchException e) {
+               System.out.println("ERRO - Input Invalido");
+           } catch(IllegalArgumentException e) {
+               System.out.println(e);
+           }
+
+           switch (opc) {
+               case 1 -> {
+
+               }
+           }
+       } while (opc != 0);
+    }
+
 }
