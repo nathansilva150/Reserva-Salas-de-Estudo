@@ -46,8 +46,15 @@ public class MenuView {
                     listar();
                 }
                 case 3 -> {
-
+                    remover();
                 }
+                case 4 -> {
+                    Atualizar();
+                }
+                case 5 -> {
+                    buscar();
+                }
+
             }
 
         } while (opc != 0);
@@ -65,7 +72,7 @@ public class MenuView {
             try {
                 opc = sc.nextInt();
                 sc.nextLine();
-            } catch (RuntimeException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("ERRO - ...");
             }
             switch (opc) {
@@ -103,7 +110,7 @@ public class MenuView {
                     }
                 }
                 case 0 -> {
-                    break;
+
                 }
                 default -> {
                     System.out.println("Inválido!");
@@ -129,6 +136,7 @@ public class MenuView {
                 System.out.println(e.getMessage());
             } catch (InputMismatchException e) {
                 System.out.println("ERRO - Input invalido"+ e);
+                sc.nextLine();
             }
             switch (opc) {
                 case 1 -> {
@@ -142,11 +150,9 @@ public class MenuView {
                 }
                 case 0 -> {
                     System.out.println("Saindo");
-                    break;
                 }
                 default -> {
                     System.out.println("numero fora do intervalo");
-                    break;
                 }
             }
 
@@ -159,28 +165,44 @@ public class MenuView {
         int opc = 0;
 
         do {
-            System.out.println("Digite para remover");
-            System.out.println("1 ------ Usuario");
-            System.out.println("2 ------ Sala");
-            System.out.println("3 ------ Reserva");
-            System.out.println("0 ------ Sair");
-
+            try {
+                System.out.println("Digite para remover");
+                System.out.println("1 ------ Usuario");
+                System.out.println("2 ------ Sala");
+                System.out.println("3 ------ Reserva");
+                System.out.println("0 ------ Sair");
+                opc = sc.nextInt();
+                sc.nextLine();
+            } catch(InputMismatchException e) {
+                System.out.println("ERRO - Input invalido "+ e.getMessage());
+            }
             switch(opc) {
                 case 1 -> {
-                    usuarioView.removerUsuario();
+                    try {
+                        usuarioView.removerUsuario();
+                    }catch(IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
                 }
                 case 2 -> {
-                    salaView.removerSala();
-                }
+                    try {
+                        salaView.removerSala();
+                    } catch(IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        }
+                    }
                 case 3 -> {
-                    reservaView.removerReserva();
-                }
+                    try {
+                        reservaView.removerReserva();
+                    } catch(IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        }
+                    }
                 case 0 -> {
                     System.out.println("saindo...");
-                    break;
                 }
                 default -> {
-                    break;
+                    System.out.println("Opção inexistente");
                 }
             }
         }while (opc != 0);
@@ -210,10 +232,55 @@ public class MenuView {
 
            switch (opc) {
                case 1 -> {
-
+                usuarioView.atualizarUsuario();
+               }
+               case 2 ->{
+                   System.out.println("Não temos");
+               }
+               case 3 -> {
+                   System.out.println("Não temos");
+               }
+               case 0 ->{
+                   System.out.println("Saindo");
                }
            }
        } while (opc != 0);
     }
+
+    public void buscar() {
+        int opc = 0;
+        do {
+            System.out.println("Digite      para ");
+        System.out.println("   1    :    Usuario ");
+        System.out.println("   2    :    Sala");
+        System.out.println("   3    :    Reserva");
+        System.out.println("   0    :    Sair");
+        try {
+            opc = sc.nextInt();
+            sc.nextLine();
+        } catch(InputMismatchException e) {
+            System.out.println("ERRO - input invalido "+e.getMessage());
+        }
+        switch (opc) {
+            case 1 -> {
+                try {
+                    usuarioView.buscarUsuario();
+                } catch(IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                    }
+                }
+            case 2 -> {
+
+            }
+            case 3 -> {
+
+            }
+            case 0 -> {
+                System.out.println("Saindo...");
+            }
+        }        }
+        while(opc != 0);
+    }
+
 
 }

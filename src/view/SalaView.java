@@ -3,6 +3,7 @@ package view;
 import controller.SalaController;
 import model.entity.Sala;
 
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import static view.Inicializar.criarSalaController;
@@ -18,15 +19,23 @@ public class SalaView {
     }
 
     public void cadastrarSala() {
-        System.out.println("Digite o Id da sala");
-        String id = sc.nextLine();
-        System.out.println("Digite o numero da sala");
-        int num = sc.nextInt();
-        System.out.println("Digite a capacidade da Sala");
-        int capacidade = sc.nextInt();
-
-            controller.cadastrarSala(id, num, capacidade, true);
-            System.out.println("Usuario Cadastrado com sucesso!");
+        String id = "0";
+        int num = 0;
+        int capacidade =0;
+        try {
+            System.out.println("Digite o Id da sala");
+            id = sc.nextLine();
+            System.out.println("Digite o numero da sala");
+            num = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Digite a capacidade da Sala");
+            capacidade = sc.nextInt();
+            sc.nextLine();
+        } catch(InputMismatchException e) {
+            System.out.println("ERRO - Input invalido");
+        }
+        controller.cadastrarSala(id, num, capacidade, true);
+            System.out.println("Sala Cadastrado com sucesso!");
 
 
     }

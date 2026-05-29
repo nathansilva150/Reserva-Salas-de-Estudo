@@ -19,8 +19,8 @@ public class UsuarioController {
     }
 
     //Cadastrar
-    public void cadastrarUsuario(String nome, String cpf, String id){
-        usuarioService.cadastrarUsuario(nome,cpf,id);
+    public void cadastrarUsuario(String id, String nome, String cpf){
+        usuarioService.cadastrarUsuario(id, nome, cpf);
     }
 
     //Buscar
@@ -49,6 +49,13 @@ public class UsuarioController {
         }
     }
 
+    public void atualizarNome(String idUser, String nome){
+        usuarioService.atualizarNome(idUser, nome);
+    }
+
+    public void atualizarCPF(String idUser, String cpf){
+        usuarioService.atualizarCPF(idUser, cpf);
+    }
 
 
 

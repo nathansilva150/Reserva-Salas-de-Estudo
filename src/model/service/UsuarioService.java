@@ -12,12 +12,12 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public void cadastrarUsuario(String nome, String cpf, String id){
+    public void cadastrarUsuario(String id, String nome, String cpf){
         validarUsuarioNome(nome);
         validarUsuarioCpf(cpf);
         validarUSuarioId(id);
 
-        Usuario usuario = new Usuario(nome,cpf,id);
+        Usuario usuario = new Usuario(id, nome, cpf);
         usuarioRepository.salvar(usuario);
     }
 
@@ -72,5 +72,20 @@ public class UsuarioService {
                 throw new IllegalArgumentException("ERRO! CPF ja cadastrado!");
             }
         }
+    }
+
+    public void atualizarNome(String idUser, String nome){
+        Usuario usuarioAlterado = buscarUsuario(idUser);
+        usuarioAlterado.setNome(nome);
+        cadastrarUsuario(usuarioAlterado.getId(), usuarioAlterado.getNome(), usuarioAlterado.getCpf());
+
+        // o metodo cadastrar ele utiliza o put no hashMap, o push verifica se a chave é repetida, se ela for ele só substitui, se não for adiciona uma nova
+    }
+
+    public void atualizarCPF(String idUser, String cpf) {
+        Usuario usuarioAlterado = buscarUsuario(idUser);
+        usuarioAlterado.setCpf(cpf);
+        cadastrarUsuario(usuarioAlterado.getId(), usuarioAlterado.getNome(), usuarioAlterado.getCpf());
+
     }
 }
